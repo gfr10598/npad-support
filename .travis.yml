@@ -34,4 +34,4 @@ deploy:
      # Consider all branches and match using the condition. By default
      # "all_branches" is false, and the condition is ignored.
      all_branches: true
-     condition: $TRAVIS_BRANCH == 1.5.7.pre1*
+     condition: $TRAVIS_BRANCH =~ 1.5.7.pre1*
