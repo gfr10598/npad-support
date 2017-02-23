@@ -4,7 +4,8 @@ services:
 - docker
 
 script:
-- docker pull gcr.io/mlab-pub/github-m-lab-builder:latest
+        # TODO - change to :latest
+- docker pull gcr.io/mlab-sandbox/github-m-lab-builder:travis
 - ls
 - docker run -v `pwd`/slicebase-i386:/root/builder/build/slicebase-i386 -v `pwd`/bin:/root/bin
   gcr.io/mlab-pub/github-m-lab-builder /root/bin/build_npad.sh
