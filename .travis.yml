@@ -8,7 +8,7 @@ script:
 - docker pull gcr.io/mlab-sandbox/github-m-lab-builder:travis
 - ls
 - docker run -v `pwd`/slicebase-i386:/root/builder/build/slicebase-i386 -v `pwd`/bin:/root/bin
-  gcr.io/mlab-pub/github-m-lab-builder /root/bin/build_npad.sh
+  gcr.io/mlab-sandbox/github-m-lab-builder:travis /root/bin/build_npad.sh
 - $TRAVIS_BUILD_DIR/travis/install_gcloud.sh
 
 before_install:
@@ -27,13 +27,11 @@ before_install:
 deploy:
 # SANDBOX: before code review for development code in a specific branch.
  - provider: script
-   script: $TRAVIS_BUILD_DIR/travis/deploy_app.sh mlab-sandbox
-     /tmp/legacy-rpm-writer.json
-     $TRAVIS_BUILD_DIR/cmd/epoxy_boot_server
+   script: $TRAVIS_BUILD_DIR/travis/deploy.sh /tmp/legacy-rpm-writer.json
    skip_cleanup: true
    on:
      repo: gfr10598/npad-support
      # Consider all branches and match using the condition. By default
      # "all_branches" is false, and the condition is ignored.
      all_branches: true
-     condition: $TRAVIS_BRANCH == sandbox-*
+     condition: $TRAVIS_BRANCH =~ 1.5.7.pre1*
