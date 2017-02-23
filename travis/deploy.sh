@@ -2,8 +2,11 @@
 set -x
 set -e
 
+KEYFILE=${1:?Please provide the service account key file}
+
 # Add gcloud to PATH.
 source "${HOME}/google-cloud-sdk/path.bash.inc"
+
 
 # All operations are performed as the service account named in KEYFILE.
 # For all options see:

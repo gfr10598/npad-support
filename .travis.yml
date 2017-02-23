@@ -27,7 +27,7 @@ before_install:
 deploy:
 # SANDBOX: before code review for development code in a specific branch.
  - provider: script
-   script: $TRAVIS_BUILD_DIR/travis/deploy.sh
+   script: $TRAVIS_BUILD_DIR/travis/deploy.sh /tmp/legacy-rpm-writer.json
    skip_cleanup: true
    on:
      repo: gfr10598/npad-support
