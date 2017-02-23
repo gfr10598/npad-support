@@ -10,9 +10,10 @@ script:
 
 before_install:
 - if [[ -n "$encrypted_9bceeca3f3aa_iv" ]] ; then
-- openssl aes-256-cbc -K $encrypted_9bceeca3f3aa_key -iv $encrypted_9bceeca3f3aa_iv
-  -in $TRAVIS_BUILD_DIR/travis/legacy-rpm-writer.json.enc -out /tmp/legacy-rpm-writer.json -d
-- $TRAVIS_BUILD_DIR/travis/install_gcloud.sh
+  openssl aes-256-cbc -K $encrypted_9bceeca3f3aa_key -iv $encrypted_9bceeca3f3aa_iv
+  -in $TRAVIS_BUILD_DIR/travis/legacy-rpm-writer.json.enc -out /tmp/legacy-rpm-writer.json -d ; fi
+
+  $TRAVIS_BUILD_DIR/travis/install_gcloud.sh
 
   # NB: Travis has a Google AppEngine (gae) provider, however it does not work
   # # here (unknown).
