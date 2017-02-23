@@ -18,5 +18,6 @@ gcloud auth activate-service-account --key-file "${KEYFILE}"
 # a privileged account:
 # gsutil acl ch -u legacy-rpm-writer@mlab-sandbox.iam.gserviceaccount.com:W \
 #  gs://legacy-rpms-mlab-sandbox
-gsutil cp slicebase-i386/i686/*.rpm gs://legacy-rpms-mlab-sandbox
+gsutil cp slicebase-i386/i686/*.rpm gs://legacy-rpms-mlab-sandbox/new
+
 exit 0
